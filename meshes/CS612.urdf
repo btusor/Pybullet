@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="CS612urdf">
+
+  <link name="base_link">
+    <visual><geometry><mesh filename="base_link.STL"/></geometry></visual>
+    <collision><geometry><mesh filename="base_link.STL"/></geometry></collision>
+    <inertial>
+      <mass value="0.948882914788405"/>
+      <inertia ixx="0.0029607" ixy="0" ixz="0" iyy="0.0026222" iyz="0" izz="0.0039906"/>
+    </inertial>
+  </link>
+
+  <link name="link1">
+    <visual><geometry><mesh filename="link1.STL"/></geometry></visual>
+    <collision><geometry><mesh filename="link1.STL"/></geometry></collision>
+  </link>
+  <joint name="Joint1" type="revolute">
+    <parent link="base_link"/><child link="link1"/>
+    <origin xyz="0 0 0.193" rpy="0 0 0"/><axis xyz="0 0 1"/>
+    <limit lower="-3.14" upper="3.14" effort="200" velocity="2.0"/>
+  </joint>
+
+  <link name="link2">
+    <visual><geometry><mesh filename="link2.STL"/></geometry></visual>
+    <collision><geometry><mesh filename="link2.STL"/></geometry></collision>
+  </link>
+  <joint name="Joint2" type="revolute">
+    <parent link="link1"/><child link="link2"/>
+    <origin xyz="0 0 0" rpy="1.5708 1.5708 0"/><axis xyz="0 0 1"/>
+    <limit lower="-3.14" upper="3.14" effort="200" velocity="2.0"/>
+  </joint>
+
+  <link name="link3">
+    <visual><geometry><mesh filename="link3.STL"/></geometry></visual>
+    <collision><geometry><mesh filename="link3.STL"/></geometry></collision>
+  </link>
+  <joint name="Joint3" type="revolute">
+    <parent link="link2"/><child link="link3"/>
+    <origin xyz="-0.615 0 0" rpy="0 0 0"/><axis xyz="0 0 1"/>
+    <limit lower="-3.14" upper="3.14" effort="200" velocity="2.0"/>
+  </joint>
+
+  <link name="link4">
+    <visual><geometry><mesh filename="link4.STL"/></geometry></visual>
+    <collision><geometry><mesh filename="link4.STL"/></geometry></collision>
+  </link>
+  <joint name="Joint4" type="revolute">
+    <parent link="link3"/><child link="link4"/>
+    <origin xyz="-0.571 0 0.1775" rpy="0 0 -1.5708"/><axis xyz="0 0 1"/>
+    <limit lower="-3.14" upper="3.14" effort="200" velocity="2.0"/>
+  </joint>
+
+  <link name="link5">
+    <visual><geometry><mesh filename="link5.STL"/></geometry></visual>
+    <collision><geometry><mesh filename="link5.STL"/></geometry></collision>
+  </link>
+  <joint name="Joint5" type="revolute">
+    <parent link="link4"/><child link="link5"/>
+    <origin xyz="0 -0.118 0" rpy="1.5708 0 0"/><axis xyz="0 0 1"/>
+    <limit lower="-3.14" upper="3.14" effort="200" velocity="2.0"/>
+  </joint>
+
+  <link name="link6">
+    <visual><geometry><mesh filename="link6.STL"/></geometry></visual>
+    <collision><geometry><mesh filename="link6.STL"/></geometry></collision>
+  </link>
+  <joint name="Joint6" type="revolute">
+    <parent link="link5"/><child link="link6"/>
+    <origin xyz="0 0.1103 0" rpy="-1.5708 0 0"/><axis xyz="0 0 1"/>
+    <limit lower="-3.14" upper="3.14" effort="200" velocity="2.0"/>
+  </joint>
+
+  <link name="link7_tcp">
+    <visual>
+      <geometry>
+        <mesh filename="link7_tcp.STL"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="link7_tcp.STL"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.1"/>
+      <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001"/>
+    </inertial>
+  </link>
+
+  <joint name="Joint_TCP" type="fixed">
+    <parent link="link6"/>
+    <child link="link7_tcp"/>
+    <origin xyz="-0.065 -0.095 0.226" rpy="-1.5708 0 0"/>
+  </joint>
+
+</robot>
