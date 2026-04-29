@@ -28,10 +28,10 @@ p.setJointMotorControl2(robot_id, 6, p.POSITION_CONTROL, targetPosition=0, force
 
 # --- 3. Control Parameters ---
 center_pos = np.array([0.5, 0.0, 0.5])
-amplitude = 0.2
+amplitude = 0.4
 frequency = 0.2
 
-Kp = 500.0
+Kp = 2000.0
 Kd = 40.0
 
 # Visual Marker
