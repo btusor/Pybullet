@@ -26,7 +26,7 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 mesh_dir = os.path.normpath(os.path.join(current_dir, "..", "meshes"))
 
 robot_path = os.path.normpath(os.path.join(mesh_dir, "CS612.urdf"))
-workspace_path = os.path.normpath(os.path.join(mesh_dir, "Downsized_WORKSPACE.stl"))
+workspace_path = os.path.normpath(os.path.join(mesh_dir, "Downsized_WORKSPACE_2.stl"))
 trajectory_file = os.path.join(current_dir, "q.json")
 
 # Import data from q.json
@@ -39,7 +39,7 @@ p.loadURDF(os.path.join(pybullet_path, "plane.urdf"), [0, 0, 0])
 
 # Load Robot
 sys.stderr = open(os.devnull, 'w')
-targid = p.loadURDF(robot_path, [0, 0, 0.54 ], useFixedBase=True)
+targid = p.loadURDF(robot_path, [0, 0, 0.57 ], useFixedBase=True)
 sys.stderr = sys.__stderr__
 
 # Load Workspace (Replacing Table and Pole)
